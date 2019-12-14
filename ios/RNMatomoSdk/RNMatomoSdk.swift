@@ -54,4 +54,13 @@ class RNMatomoSdk: NSObject {
             rejecter("not_initialize", "The tracker has not been initialized", NSError())
         }
     }
+
+    @objc(setUserId:)
+    func setUserId(
+        userID: String
+    ) -> Void {
+        if let tracker = tracker {
+            tracker.userId = userID
+        }
+    }
 }
