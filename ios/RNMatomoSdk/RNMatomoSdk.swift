@@ -57,10 +57,13 @@ class RNMatomoSdk: NSObject {
 
     @objc(setUserId:)
     func setUserId(
-        userID: String
+        userId: String
     ) -> Void {
         if let tracker = tracker {
-            tracker.userId = userID
+            tracker.userId = userId
+            resolver(nil)
+        } else {
+            rejecter("not_initialize", "The tracker has not been initialized", NSError())
         }
     }
 }
